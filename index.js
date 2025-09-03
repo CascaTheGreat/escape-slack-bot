@@ -38,8 +38,7 @@ app.event("app_mention", async ({ event, context }) => {
     }
     if (event.text.includes("retreats")) {
       //make API call to Eventbrite with pagination
-      const page = "";
-      const per_page = 50;
+      let page = "";
       let has_more = true;
       const dates = {
         "Saturday Sept. 27 - Sunday, Sept. 28": {
