@@ -83,6 +83,8 @@ app.event("app_mention", async ({ event, context }) => {
           }
         );
         const data = await response.json();
+        console.log(data);
+        console.log(data.attendees);
 
         for (const attendee of data.attendees) {
           const retreatDate = attendee.answers[0].answer;
