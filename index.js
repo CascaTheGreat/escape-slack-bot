@@ -41,35 +41,35 @@ app.event("app_mention", async ({ event, context }) => {
       let page = "";
       let has_more = true;
       const dates = {
-        "Saturday Sept. 27 - Sunday, Sept. 28": {
-          num_attendees: 0,
-          team: "Star",
-          emoji: "⭐",
-        },
         "Friday, Sept. 26 - Saturday, Sept. 27": {
           num_attendees: 0,
           team: "Hero",
-          emoji: "⚔️",
+          emoji: "⚡🏅",
+        },
+        "Saturday Sept. 27 - Sunday, Sept. 28": {
+          num_attendees: 0,
+          team: "Star",
+          emoji: "🌟💫",
         },
         "Friday, Oct. 24 - Saturday, Oct. 25 ": {
           num_attendees: 0,
           team: "Star",
-          emoji: "⭐",
+          emoji: "🌟💫",
         },
         "Saturday, Oct. 25 - Sunday, Oct. 26": {
           num_attendees: 0,
           team: "Distance",
-          emoji: "🏃",
+          emoji: "🧭🛣️",
         },
         "Friday, Nov. 14 - Saturday, Nov. 15 (Transfer Retreat)": {
           num_attendees: 0,
           team: "Distance",
-          emoji: "🏃",
+          emoji: "🧭🛣️",
         },
         "Saturday, Nov. 15 - Sunday, Nov. 16": {
           num_attendees: 0,
           team: "Hero",
-          emoji: "⚔️",
+          emoji: "⚡🏅",
         },
       };
       while (has_more) {
@@ -102,8 +102,7 @@ app.event("app_mention", async ({ event, context }) => {
           dates
         )
           .map(
-            ([date, info]) =>
-              `${date} (${info.emoji} ${info.team}): *${info.num_attendees}*`
+            ([date, info]) => `${date} (${info.emoji}): *${info.num_attendees}*`
           )
           .join("\n")}`,
         token: context.botToken,
