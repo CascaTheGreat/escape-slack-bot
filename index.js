@@ -75,7 +75,7 @@ app.event("app_mention", async ({ event, context }) => {
       };
       while (has_more) {
         const response = await fetch(
-          `https://www.eventbriteapi.com/v3/events/${process.env.EVENTBRITE_EVENT_ID}/attendees/?continuation=${page}&page_size=${per_page}`,
+          `https://www.eventbriteapi.com/v3/events/${process.env.EVENTBRITE_EVENT_ID}/attendees/?continuation=${page}`,
           {
             headers: {
               Authorization: `Bearer ${process.env.EVENTBRITE_API_TOKEN}`,
@@ -83,8 +83,6 @@ app.event("app_mention", async ({ event, context }) => {
           }
         );
         const data = await response.json();
-        console.log(data);
-        console.log(data.attendees);
 
         for (const attendee of data.attendees) {
           const retreatDate = attendee.answers[0].answer;
