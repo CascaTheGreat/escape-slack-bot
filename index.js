@@ -87,10 +87,12 @@ app.event("app_mention", async ({ event, context }) => {
           const retreatDate = attendee.answers[0].answer;
           if (dates[retreatDate]) {
             dates[retreatDate].num_attendees++;
+          } else {
+            console.log(`Unknown retreat date: ${retreatDate}`);
           }
         }
 
-        has_more = data.has_more_items;
+        has_more = data.pagination.has_more_items;
         page = data.pagination.continuation;
       }
 
